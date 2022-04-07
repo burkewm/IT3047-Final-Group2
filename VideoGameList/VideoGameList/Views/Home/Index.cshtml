@@ -1,0 +1,38 @@
+﻿@model List<VideoGame>
+@{
+    ViewBag.Title = "Video Games";
+}
+<h2>Video Game List</h2>
+<a asp-controller="VideoGame" asp-action="Add">Add Video Game</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>ESRB</th>
+            <th>Genre</th>
+            <th>Release Date</th>
+            <th>Rating</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Model)
+        {
+            <tr>
+                <td>@game.Title</td>
+                <td>@game.ESRB.Name</td>
+                <td>@game.Genre</td>
+                <td>@game.ReleaseDate</td>
+                <td>@game.Rating</td>
+                <td>
+                    <a asp-controller="VideoGame" asp-action="Edit"
+                       asp-route-id="@game.VideoGameId"
+                       asp-route-slug="@game.Slug">Edit</a>
+                    <a asp-controller="VideoGame" asp-action="Delete"
+                       asp-route-id="@game.VideoGameId"
+                       asp-route-slug="@game.Slug">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
