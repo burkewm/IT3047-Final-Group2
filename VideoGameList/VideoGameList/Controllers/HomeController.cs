@@ -7,6 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using VideoGameList.Models;
+using System.Data;
+using System.Text;
+using System.Configuration;
+using System.Data.SqlClient;
+
 
 namespace VideoGameList.Controllers
 {
@@ -25,5 +30,24 @@ namespace VideoGameList.Controllers
                 .OrderBy(m => m.Title).ToList();
             return View(games);
         }
+        public IActionResult AboutUs()
+        {
+
+            return View();
+        }
+
+        public IActionResult AboutHobby()
+        {
+
+            return View();
+        }
+
+        public IActionResult DBView()
+        {
+
+            return View();
+        }
+
+
     }
 }
