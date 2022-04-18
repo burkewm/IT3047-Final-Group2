@@ -44,8 +44,10 @@ namespace VideoGameList.Controllers
 
         public IActionResult DBView()
         {
-
-            return View();
+            var games = context.Games
+                .Include(g => g.ESRB)
+                .OrderBy(m => m.Title).ToList();
+            return View(games);
         }
 
 

@@ -1,7 +1,33 @@
-﻿
+﻿@model List<VideoGame>
 @{
     ViewData["Title"] = "DBView";
 }
 
 <h1>DBView</h1>
 
+<table class="table">
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+             <td>
+                @Html.DisplayFor(modelItem => item.VideoGameId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ESRB.ESRBId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
